@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> rotateArray(vector<int> nums, int k) {
+    int n = nums.size();
+    k = k % n;
+
+    vector<int> rotated;
+
+    for (int i = k; i < n; i++) {
+        rotated.push_back(nums[i]);
+    }
+
+    for (int i = 0; i < k; i++) {
+        rotated.push_back(nums[i]);
+    }
+
+    return rotated;
+}
+
+int search(vector<int> nums, int target) {
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] == target) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int main() {
+    int n;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> nums(n);
+
+    cout << "Enter the sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+
+    int k;
+    cout << "Enter rotation index: ";
+    cin >> k;
+
+    int target;
+    cout << "Enter target element: ";
+    cin >> target;
+
+    vector<int> rotated = rotateArray(nums, k);
+
+    cout << "Rotated Array: ";
+    for (int i = 0; i < rotated.size(); i++) {
+        cout << rotated[i] << " ";
+    }
+
+    int result = search(rotated, target);
+
+    if (result != -1) {
+        cout << "\nTarget found at index: " << result;
+    }
+    else {
+        cout << "\nTarget not found.";
+    }
+
+    return 0;
+}
