@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int searchInsert(vector<int>& nums, int target) {
+    return lower_bound(nums.begin(), nums.end(), target)
+           - nums.begin();
+}
+
+int main() {
+    vector<int> nums = {10, 20, 30, 40, 50};
+    int target = 35;
+
+    cout << searchInsert(nums, target);
+    return 0;
+}

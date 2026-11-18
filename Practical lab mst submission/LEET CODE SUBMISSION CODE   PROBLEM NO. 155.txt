@@ -1,36 +1,57 @@
-class MinStack {
-private:
-    stack<int> mainStack;   // Stores all values
-    stack<int> minStack;    // Stores current minimums
+Open Google Colab and create a new notebook.
 
-public:
-    // Constructor
-    MinStack() {}
 
-    // Push value onto stack
-    void push(int value) {
-        mainStack.push(value);
-        // If minStack is empty or value <= current min, push it to minStack
-        if (minStack.empty() || value <= minStack.top()) {
-            minStack.push(value);
-        }
-    }
 
-    // Remove top element
-    void pop() {
-        if (mainStack.top() == minStack.top()) {
-            minStack.pop();
-        }
-        mainStack.pop();
-    }
+Import the required Python libraries such as NumPy, TensorFlow and Scikit-learn.
 
-    // Get top element
-    int top() {
-        return mainStack.top();
-    }
 
-    // Retrieve minimum element
-    int getMin() {
-        return minStack.top();
-    }
-};
+
+Load the Iris dataset using load_iris().
+
+
+
+Separate the input features (X) and target labels (y).
+
+
+
+Apply StandardScaler() to scale the input features.
+
+
+
+Reshape the dataset into 3D format using reshape() for CNN input.
+
+
+
+Split the dataset into training (80%) and testing (20%) sets.
+
+
+
+Create a CNN model using the Sequential API.
+
+
+
+Add Conv1D, Flatten and Dense layers to the model.
+
+
+
+Compile the model using Adam optimizer, sparse categorical cross-entropy loss and accuracy metrics.
+
+
+
+Train the model using model.fit() for 50 epochs.
+
+
+
+Evaluate the model using model.evaluate() to calculate test accuracy.
+
+
+
+Use model.predict() to predict flower species.
+
+
+
+Display actual and predicted flower names.
+
+
+
+Plot the training accuracy graph using Matplotlib.
